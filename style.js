@@ -1,8 +1,15 @@
-var inputData = document.querySelector("input[type = 'text']");
-var ulList = document.querySelector("ul");
-var spans = document.getElementsByTagName("span");
-var saveBtn = document.getElementById("save");
-var clearBtn = document.getElementById("clear");
+let inputData = document.querySelector("input[type = 'text']");
+let ulList = document.querySelector("ul");
+let spans = document.getElementsByTagName("span");
+let saveBtn = document.getElementById("save");
+let clearBtn = document.getElementById("clear");
+let liList = document.getElementsByTagName("li");
+let data = new Date();
+let month = new Array("января","февраля","марта","апреля","мая","июня",
+"июля","августа","сентября","октября","ноября","декабря");
+let  modal = document.getElementById('modal');
+let btn = document.getElementById('info');
+let close = document.getElementsByClassName("close")[0];
 
 
 function deleteTodo(){
@@ -24,20 +31,25 @@ function loadTodo(){
 
 //addEventListener - обработчик события
 
-inputData.addEventListener ('keypress', function(keyPressed){
+inputData.addEventListener('keypress', function(keyPressed){
     if(keyPressed.which === 13){
-        var liNew = document.createElement("li");
-        var spanNew = document.createElement("span");
-        spanNew.innerHTML = 'Удалить';
+        let liNew = document.createElement("li");
+        let spanNew = document.createElement("span");
+        spanNew.innerHTML = 'УДАЛИТЬ';
 
-        var newTodo = this.value;
+        let dateNew = (" " +data.getDate()+ " " + month[data.getMonth()]
+        + " " + data.getFullYear() + " г.");
+
+        let newTodo = this.value;
         this.value = " ";
-        ulList.appendChild(liNew).append(spanNew, newTodo);
 
+    if(newTodo.length >= 0 && newTodo !== " "){
+        ulList.appendChild(liNew).append(spanNew, newTodo, dateNew);
+        }    
         deleteTodo();
+        LineTrough();
     }
 })
-
 
 
 saveBtn.addEventListener("click", function(){
@@ -45,10 +57,39 @@ saveBtn.addEventListener("click", function(){
 })
 
 clearBtn.addEventListener("click", function(){
-    ulList.innerHTML = "";
+    ulList.innerHTML = " ";
     localStorage.setItem('todoList',ulList.innerHTML); 
 })
 
-deleteTodo();
 
+btn.onclick = function (){
+    modal.style.display = "block";
+}
+
+close.onclick = function(){
+    modal.style.display = "none";
+}
+
+window.onclick = function (event){
+    if(event.target == modal){
+        this.modal.style.display = "none";
+    }
+}
+
+
+btn.onclick = function (){
+    modal.style.display = "block";
+}
+
+function LineTrough(){
+    for(let li of liList){
+        li.addEventListener('click', function(){
+            li.style.textDecoration = "line-through";
+            span.style.textDecoration = "none";
+        })
+    }
+}
+
+deleteTodo();
 loadTodo();
+LineTrough();

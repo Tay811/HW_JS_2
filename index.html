@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Abel|Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Caveat|Permanent+Marker&display=swap" rel="stylesheet">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -15,9 +15,9 @@
         <input type="text" placeholder="Введите новую задачу">
 
         <ul id="list">
-            <li><span>Удалить</span>Задача 1</li>
-            <li><span>Удалить</span>Задача 2</li>
-            <li><span>Удалить</span>Задача 3</li>
+            <!-- <li>  Задача 1  <span>Удалить</span></li>
+            <li>  Задача 2  <span>Удалить</span></li>
+            <li>  Задача 3  <span>Удалить</span></li> -->
         </ul>
 
         <div>
@@ -25,8 +25,15 @@
             <button id="clear">Очистить все</button>
         </div>
 
+        <button id="info">Имя студентки</button>
+        <div id="modal" class="modal">
+            <div class="modal_content">
+            <span class="close">&times</span>
+            <p>  Татьяна <br> Мастыкина</p>
+            </div>
+        </div>
     </section>
 
-    <script src="./script.js"></script>
+    <script src="./style.js"></script>
 </body>
 </html>

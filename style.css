@@ -1,10 +1,23 @@
-#list li span{
-    color: red;
-}
 
 #list{
-    margin-left: 800px;
-    font-size: 40px;
+    margin-left: 700px;
+    font-size: 50px;
+    
+    list-style-type: none;
+    font-family: 'Caveat', cursive;
+}
+
+#list li span{
+    font-family: 'Abel', sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    border: 1px solid #000;
+    background-color: rgba(202, 188, 175, 0.575);
+}
+
+#list li span:hover{
+    background-color: rgba(0, 0, 0, 0.507);
+    color: #fff;
 }
 
 section{
@@ -67,3 +80,57 @@ input{
     background-color: white;
 }
     
+
+#info{
+    font-size: 18px;
+    font-family: 'Abel', sans-serif;
+    position: relative;
+    left: 5%;
+    top: 50px;
+    width: 200px;
+    height: 200px;
+    /* border-radius: 100px; */
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#info:hover{
+    background-color: rgba(202, 188, 175, 0.575);
+  
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.521);
+}
+
+.modal_content{
+    background-color: #fafafa;
+    margin: 15% auto;
+    padding: 10px;
+    margin-left: 115px;
+    margin-top: 620px;
+    width: 170px;
+    height: 170px;
+    font-size: 18px;
+    font-family: 'Abel', sans-serif;
+}
+
+.modal p{
+    font-size: 30px;
+    text-align: center;
+}
+
+.close{
+    float: right;
+    color:#aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
